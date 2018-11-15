@@ -5,6 +5,10 @@
     with corresponding C° unit
 */
 
+#define LOWER 0
+#define UPPER 300
+#define STEP 20
+
 void fahrenheit_to_celsius(float *f, float *c) {
     *c = 5.0 * (*f - 32.0) / 9.0; 
     /* (* 5/9) wouldn't work because of 5int/9int would result in 0 (old version) */
@@ -37,7 +41,7 @@ int main(void) {
     printf("------------------------------\n");
 
     int fahr3;
-    for(fahr3 = 300; fahr3 >= 0; fahr3 = fahr3 - 20)
+    for(fahr3 = UPPER; fahr3 >= LOWER; fahr3 = fahr3 - STEP)
         printf("%3d\t%6.1f\n", fahr3, (5.0/9.0)*(fahr3-32));
 
     return 0;
